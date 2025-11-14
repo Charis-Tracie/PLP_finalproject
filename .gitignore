@@ -1,0 +1,58 @@
+# ========== ENVIRONMENT VARIABLES (CRITICAL!) ==========
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.env
+
+# ========== DEPENDENCIES ==========
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+
+# ========== LOGS ==========
+logs/
+*.log
+
+# ========== OS FILES ==========
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# ========== IDE ==========
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ========== BUILD FILES ==========
+dist/
+build/
+*.min.js
+*.min.css
+
+# ========== DATABASE ==========
+*.sqlite
+*.db
+
+# ========== UPLOADS ==========
+uploads/
+public/uploads/
+
+# ========== CACHE ==========
+.cache
+.parcel-cache
+.next/
+
+# ========== MISC ==========
+tmp/
+temp/
+*.tmp

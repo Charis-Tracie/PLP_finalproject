@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare AI - Mental Health Chatbot</title>
+    <meta name="description" content="Your compassionate 24/7 mental health companion. Get support, track your mood, and access crisis resources worldwide.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="welcome-container">
+        <div class="welcome-card">
+            <div class="welcome-header">
+                <div class="logo-circle">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h1>Welcome to MindCare AI</h1>
+                <p>Your compassionate mental health companion</p>
+            </div>
+            
+            <div class="welcome-form">
+                <input 
+                    type="text" 
+                    id="userNameInput" 
+                    placeholder="What's your name?" 
+                    class="input-field"
+                />
+                <button onclick="startJourney()" class="btn-primary">
+                    Start Your Journey
+                </button>
+            </div>
+
+            <div class="privacy-notice">
+                <i class="fas fa-lock"></i> Your privacy matters. All conversations are confidential.
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="main-app hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo-small">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="header-info">
+                        <h1>MindCare AI</h1>
+                        <p id="userGreeting">Hello, User</p>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <button onclick="toggleTheme()" class="icon-btn" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button onclick="toggleMenu()" class="icon-btn" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="layout-grid">
+                <!-- Sidebar -->
+                <aside class="sidebar" id="sidebar">
+                    <!-- Mobile Close Button -->
+                    <div class="sidebar-mobile-header">
+                        <h2>Menu</h2>
+                        <button onclick="toggleMenu()" class="sidebar-close-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Mood Tracker -->
+                    <div class="card">
+                        <h3 class="card-title">
+                            <i class="fas fa-heart"></i>
+                            How are you feeling?
+                        </h3>
+                        <div class="mood-grid">
+                            <button class="mood-btn" data-mood="Happy" onclick="selectMood('Happy', '😊', 'green')">😊</button>
+                            <button class="mood-btn" data-mood="Sad" onclick="selectMood('Sad', '😔', 'blue')">😔</button>
+                            <button class="mood-btn" data-mood="Anxious" onclick="selectMood('Anxious', '😰', 'yellow')">😰</button>
+                            <button class="mood-btn" data-mood="Angry" onclick="selectMood('Angry', '😡', 'red')">😡</button>
+                            <button class="mood-btn" data-mood="Neutral" onclick="selectMood('Neutral', '😐', 'gray')">😐</button>
+                        </div>
+                        <p id="moodStatus" class="mood-status"></p>
+                    </div>
+
+                    <!-- Recent Sessions -->
+                    <div class="card">
+                        <h3 class="card-title">
+                            <i class="fas fa-calendar"></i>
+                            Recent Sessions
+                        </h3>
+                        <div id="sessionsList" class="sessions-list">
+                            <p class="no-sessions">No sessions yet</p>
+                        </div>
+                        <button onclick="clearHistory()" class="btn-danger hidden" id="clearBtn">
+                            Clear History
+                        </button>
+                    </div>
+
+                    <!-- Mental Health Tracker Button -->
+                    <div class="card">
+                        <button onclick="toggleTracker()" class="btn-tracker" id="trackerBtn">
+                            <i class="fas fa-chart-line"></i>
+                            Mental Health Tracker
+                        </button>
+                        <p class="tracker-hint">Track your mood over time</p>
+                    </div>
+
+                    <!-- Resources -->
+                    <div class="card">
+                        <h3 class="card-title">
+                            <i class="fas fa-book"></i>
+                            Mental Health Resources
+                        </h3>
+                        
+                        <!-- Country Selector -->
+                        <div class="country-selector">
+                            <label for="countrySelect">
+                                <i class="fas fa-globe"></i> Select Country:
+                            </label>
+                            <select id="countrySelect" onchange="updateResources()" class="country-dropdown">
+                                <option value="KE">🇰🇪 Kenya</option>
+                                <option value="US">🇺🇸 United States</option>
+                                <option value="GB">🇬🇧 United Kingdom</option>
+                                <option value="CA">🇨🇦 Canada</option>
+                                <option value="AU">🇦🇺 Australia</option>
+                                <option value="IN">🇮🇳 India</option>
+                                <option value="ZA">🇿🇦 South Africa</option>
+                                <option value="NG">🇳🇬 Nigeria</option>
+                                <option value="GH">🇬🇭 Ghana</option>
+                            </select>
+                        </div>
+                        
+                        <div id="resourcesList" class="resources-list">
+                            <!-- Resources will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Chat Area -->
+                <main class="chat-area">
+                    <!-- Mental Health Tracker Graph -->
+                    <div class="tracker-container hidden" id="trackerContainer">
+                        <div class="tracker-header">
+                            <h3>
+                                <i class="fas fa-chart-line"></i>
+                                Your Mental Health Journey
+                            </h3>
+                            <button onclick="toggleTracker()" class="close-tracker">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="tracker-stats">
+                            <div class="stat-card">
+                                <div class="stat-value" id="totalDays">0</div>
+                                <div class="stat-label">Days Tracked</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value" id="avgMood">--</div>
+                                <div class="stat-label">Average Mood</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value" id="trendIcon">📊</div>
+                                <div class="stat-label">Trend</div>
+                            </div>
+                        </div>
+                        
+                        <canvas id="moodChart"></canvas>
+                        
+                        <div class="tracker-legend">
+                            <div class="legend-item"><span class="legend-color" style="background: #48bb78;"></span> Happy</div>
+                            <div class="legend-item"><span class="legend-color" style="background: #a0aec0;"></span> Neutral</div>
+                            <div class="legend-item"><span class="legend-color" style="background: #ecc94b;"></span> Anxious</div>
+                            <div class="legend-item"><span class="legend-color" style="background: #4299e1;"></span> Sad</div>
+                            <div class="legend-item"><span class="legend-color" style="background: #f56565;"></span> Angry</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-container">
+                        <!-- Messages -->
+                        <div class="messages-container" id="messagesContainer">
+                            <!-- Messages will be added here dynamically -->
+                        </div>
+
+                        <!-- Input Area -->
+                        <div class="input-area">
+                            <textarea 
+                                id="messageInput" 
+                                placeholder="Share what's on your mind..."
+                                rows="1"
+                            ></textarea>
+                            <button onclick="sendMessage()" class="send-btn" id="sendBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <p class="privacy-footer">
+                            <i class="fas fa-lock"></i> Your conversations are private and secure
+                        </p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</body>
+</html>
