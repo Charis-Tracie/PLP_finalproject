@@ -291,7 +291,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 
 
 
-### **Vercel**
+### **Render**
 
 ```bash
 vercel
