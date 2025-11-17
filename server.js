@@ -23,7 +23,7 @@ if (!process.env.OPENAI_API_KEY) {
 // ========== MIDDLEWARE ==========
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Serve frontend files from 'public' folder
+app.use(express.static('fronted')); // Serve frontend files from 'public' folder
 
 // ========== DATABASE CONNECTION ==========
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mindcare';
@@ -160,7 +160,7 @@ const authenticateToken = (req, res, next) => {
 
 // ========== ROOT ROUTE ==========
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/fronted/index.html');
 });
 
 // ========== API INFO ROUTE ==========
