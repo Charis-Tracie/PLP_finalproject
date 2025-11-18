@@ -581,8 +581,8 @@ const countryResources = {
             { icon: 'phone', text: 'Befrienders: +254 722 178 177', tel: '+254722178177', desc: 'Daily 10 AM - 10 PM' },
             { icon: 'phone', text: 'GVRC: +254 709 400 350', tel: '+254709400350', desc: 'Gender Violence Support 24/7' }
         ],
-        therapist: { url: 'https://kenyapsychology.org', text: 'Kenya Psychological Association' },
-        resources: { url: 'https://www.who.int/kenya/health-topics/mental-health', text: 'WHO Kenya Mental Health' }
+        therapist: { url: 'https://kpsya.or.ke/', text: 'Kenya Psychological Association' },
+        resources: { url: 'https://www.who.int/publications/m/item/mental-health-atlas-ken-2020-country-profile', text: 'WHO Kenya Mental Health' }
     },
     US: {
         name: 'United States',
@@ -641,7 +641,7 @@ const countryResources = {
             { icon: 'phone', text: 'SADAG: 0800 567 567', tel: '0800567567', desc: 'Depression & Anxiety 24/7' },
             { icon: 'comment', text: 'SMS: 31393', tel: '', desc: 'Text Support' }
         ],
-        therapist: { url: 'https://www.psyssa.com/', text: 'Psychological Society of SA' },
+        therapist: { url: 'https://www.sadag.org/', text: 'Psychological Society of SA' },
         resources: { url: 'https://www.sadag.org/', text: 'SADAG Mental Health Resources' }
     },
     NG: {
