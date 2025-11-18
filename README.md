@@ -1,7 +1,8 @@
 # MindCare AI - Mental Health Chatbot 
 
 A compassionate AI-driven mental health chatbot with a modern interface, secure backend, and helpful mental‑wellness tools.
-llive demo-- (https://plp-finalproject.onrender.com)
+
+Live demo-- (https://plp-finalproject.onrender.com)
 
 ---
 
