@@ -1,6 +1,7 @@
 # MindCare AI - Mental Health Chatbot 
 
 A compassionate AI-driven mental health chatbot with a modern interface, secure backend, and helpful mental‑wellness tools.
+llive demo-- (https://plp-finalproject.onrender.com)
 
 ---
 
@@ -37,21 +38,15 @@ A compassionate AI-driven mental health chatbot with a modern interface, secure 
 
 ---
 
-## **Step 1: Clone the Project**
 
-```bash
-# Create project directory
-mkdir mindcare-ai
-cd mindcare-ai
-```
 
 ---
 
-## **Step 2: Project Structure**
+: Project Structure**
 
 ```
 mindcare-ai/
-├── public/
+├── fronted/
 │   ├── index.html
 │   ├── styles.css
 │   └── app.js
@@ -61,11 +56,11 @@ mindcare-ai/
 └── README.md
 ```
 
-Copy the provided code into the appropriate files.
+
 
 ---
 
-## **Step 3: Install Dependencies**
+: Install Dependencies**
 
 ```bash
 npm install
@@ -84,7 +79,7 @@ Dependencies include:
 
 ---
 
-## **Step 4: Configure Environment Variables**
+: Configure Environment Variables**
 
 Create/edit the `.env` file:
 
@@ -94,11 +89,10 @@ MONGODB_URI=mongodb://localhost:27017/mindcare
 JWT_SECRET=your-super-secret-key
 ```
 
-Replace `JWT_SECRET` with a strong value in production.
 
 ---
 
-## **Step 5: Set Up MongoDB**
+: Set Up MongoDB**
 
 ### **Option A: Local MongoDB**
 
@@ -108,20 +102,11 @@ Start MongoDB locally:
 mongod
 ```
 
-### **Option B: MongoDB Atlas**
 
-1. Create an account at MongoDB Atlas
-2. Create a cluster
-3. Get the connection string
-4. Update `.env`:
-
-```
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/mindcare
-```
 
 ---
 
-## **Step 6: Start the Server**
+: Start the Server**
 
 ```bash
 npm run dev   # Development mode
@@ -132,7 +117,7 @@ Server runs at: [**http://localhost:5000**](http://localhost:5000)
 
 ---
 
-## **Step 7: Access the Application**
+: Access the Application**
 
 Open your browser:
 
@@ -146,7 +131,7 @@ http://localhost:5000
 
 ```
 mindcare-ai/
-├── public/              # Frontend files
+├── fronted/              # Frontend files
 │   ├── index.html       # Main UI
 │   ├── styles.css       # Styles
 │   └── app.js           # Frontend logic
@@ -293,8 +278,9 @@ const Anthropic = require('@anthropic-ai/sdk');
 
 ### **Render**
 
-```bash
-vercel
+
+live demo --- (https://plp-finalproject.onrender.com)
+
 ```
 
 
@@ -313,30 +299,8 @@ vercel
 
 ---
 
-##  Contributing
 
-1. Fork the repo
-2. Create a branch: `git checkout -b feature/NewFeature`
-3. Commit: `git commit -m "Add new feature"`
-4. Push: `git push origin feature/NewFeature`
-5. Open a Pull Request
 
----
 
-##  Disclaimer
-
-MindCare AI is a supportive tool—not a replacement for professional mental health care.
-If you or someone you know is in crisis, contact local emergency services.
-
----
-
-##  Acknowledgments
-
-* Font Awesome
-* MongoDB
-* Express.js
-* Mental health professionals
-
----
 
 ### Made with 💙 for mental health awareness
